@@ -27,7 +27,7 @@ public class CoolSwitchControls: UIView {
     public var selected:Int = 0
     public var cornerRadius:CGFloat = 15
     public var knobCornerRadius:CGFloat = 15
-    private var parent:UIViewController?
+    var parent:UIViewController?
     
     public init(parent:UIViewController) {
         super.init(frame: .zero)
@@ -35,12 +35,21 @@ public class CoolSwitchControls: UIView {
         self.initPage()
     }
     
+    public init() {
+        super.init(frame: .zero)
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+    }
+    
+    private func initPageWithStoryBoard(){
+        guard let parent = self.parentViewController else{return}
+        self.parent = parent
     }
     
     private func initPage(){
@@ -49,6 +58,7 @@ public class CoolSwitchControls: UIView {
     }
     
 }
+
 
 extension CoolSwitchControls{
     ///Adding the correct switch type as a subview
@@ -80,7 +90,10 @@ extension CoolSwitchControls{
     fileprivate func addsubivews()throws{
         guard let type = dataSource?.SetSwitch(for: self).type else {throw SwitchError.typeError}
         guard let configuration = dataSource?.SetSwitch(for: self).config else {throw SwitchError.configError}
-        guard let parent = self.parent else {throw SwitchError.parentError}
+        
+        if parent == nil{
+            self.initPageWithStoryBoard()
+        }
         
         switch type {
         case .One:

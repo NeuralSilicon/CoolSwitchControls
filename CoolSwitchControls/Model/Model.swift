@@ -95,6 +95,12 @@ public struct Configuration{
 
 }
 
+extension UIResponder {
+    public var parentViewController: UIViewController? {
+        return next as? UIViewController ?? next?.parentViewController
+    }
+}
+
 extension UIView{
     func CornerRadius(for radius:CGFloat){
         self.layer.masksToBounds = true

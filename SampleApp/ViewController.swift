@@ -3,7 +3,8 @@ import UIKit
 import CoolSwitchControls
 
 class ViewController: UIViewController {
-
+    @IBOutlet var switchControl: CoolSwitchControls!
+    
     var coolSwitchControls:CoolSwitchControls!
     var secondswitch:CoolSwitchControls!
     var thirdSwitch:CoolSwitchControls!
@@ -22,6 +23,7 @@ class ViewController: UIViewController {
         secondswitch.CreateSwitch()
         thirdSwitch.CreateSwitch()
         fourthswitch.CreateSwitch()
+        switchControl.CreateSwitch()
     }
 
     func addsubviews(){
@@ -80,6 +82,11 @@ class ViewController: UIViewController {
             fourthswitch.heightAnchor.constraint(equalToConstant: 40)
         ])
         view.layoutIfNeeded()
+        
+        switchControl.dataSource = self
+        switchControl.selected = 0
+        switchControl.cornerRadius = 18
+        switchControl.knobCornerRadius = 13
     }
 }
 
@@ -135,6 +142,8 @@ extension ViewController: CoolSwitchControlsDataSource, CoolSwitchControlsDelega
                                         firstOffColor: .systemGray5, secondOffColor: .systemGray3)
             
             return SwitchInitialization(type: type, config: configs)
+        }else if switchControl == self.switchControl{
+            return SwitchInitialization(type: .One, config: Configuration())
         }
         
         return SwitchInitialization(type: nil, config: nil)
@@ -147,8 +156,10 @@ extension ViewController: CoolSwitchControlsDataSource, CoolSwitchControlsDelega
             print("2", value)
         }else if switchControl == self.thirdSwitch{
             print("3", value)
-        }else{
+        }else if switchControl == self.fourthswitch{
             print("4", value)
+        }else {
+            print("5", value)
         }
     }
 
