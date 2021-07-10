@@ -4,7 +4,7 @@ CocoaPod library written in Swift version 5 for iOS 13 and above.
 
 ## Introduction
 
-`CoolSwitchControls` is a pie and bar chart that includes selections and animations.
+`CoolSwitchControls` offers three types of switch controls. You may configure these switches by adjusting the size, cornerRadius, font, fontSize, add labels, images, and gradient colors.
 
 
 ![Switches](https://user-images.githubusercontent.com/35051980/125172463-85fd5380-e17f-11eb-83e8-d499c9c24f64.gif)
@@ -14,34 +14,38 @@ CocoaPod library written in Swift version 5 for iOS 13 and above.
 
 ### Cocoapods
 
-[Cocoapods](https://cocoapods.org/#install) is a dependency manager for Swift and Objective-C Cocoa projects. To use PieBarChart with CocoaPods, add it in your `Podfile`.
+[Cocoapods](https://cocoapods.org/#install) is a dependency manager for Swift and Objective-C Cocoa projects. To use CoolSwitchControls with CocoaPods, add it in your `Podfile`.
 
 ```ruby
-pod 'PieBarChart'
+pod 'CoolSwitchControls'
 ```
 
 ## Usage
 
-import `PieBarChart`.
+import `CoolSwitchControls`.
 
 ```swift
-import PieBarChart
+import CoolSwitchControls
 ```
 
 ### Initialization
 
-By coding, create a var of type `PieBarChart` and initialize it
+By coding, create a var of type `CoolSwitchControls` and initialize it
 
-or  by storyboard, changing class of any `UIView` to `PieBarChart`.
+or  by storyboard, changing class of any `UIView` to `CoolSwitchControls`.
 
-Then, you are going to need to add values to ChartData, it's a struct with name, data, and color.
-
+Then, you can pass certain information as initialization part
 
 ```swift
-PieBarChart().addChart(chart: .Pie, data: chartData, orientation: orientation)
+CoolSwitchControls.selected = 0
+CoolSwitchControls.cornerRadius = 10
+CoolSwitchControls.knobCornerRadius = 10
 ```
 
-orientation is only for Pie Chart and comes with default vertical value.
+This module comes with two protocols that you need to pass to the ViewController:
+CoolSwitchControlsDataSource, CoolSwitchControlsDelegate
+
+You can find more information about the usage of these two protocols inside the SampleApp.
 
 
 ## License
