@@ -48,6 +48,12 @@ CoolSwitchControls.cornerRadius = 10
 CoolSwitchControls.knobCornerRadius = 10
 ```
 
+After you are done with initialization and passed the datasource with the type and config you are looking for, just call CreateSwitch() to create the object.
+
+```swift
+coolSwitchControls.CreateSwitch()
+```
+
 This module comes with two protocols that you need to pass to the ViewController:
 CoolSwitchControlsDataSource, CoolSwitchControlsDelegate
 
