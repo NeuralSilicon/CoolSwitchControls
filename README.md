@@ -34,7 +34,13 @@ By coding, create a var of type `CoolSwitchControls` and initialize it
 
 or  by storyboard, changing class of any `UIView` to `CoolSwitchControls`.
 
-Then, you can pass certain information as initialization part
+Then, you can pass certain information as initialization part.
+
+Make sure to pass the ViewController as parent to the SwitchControl when you initialize it.
+
+```swift
+var coolSwitchControls = CoolSwitchControls(parent: self)
+```
 
 ```swift
 CoolSwitchControls.selected = 0
