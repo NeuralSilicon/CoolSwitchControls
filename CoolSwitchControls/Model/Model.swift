@@ -31,8 +31,8 @@ public enum Type:Int{
 public struct Configuration{
     
     ///label
-    public var firstTxt:String = "0"
-    public var secondTxt:String = "1"
+    public var firstTxt:String = ""
+    public var secondTxt:String = ""
     public var font:UIFont.AppleFont = .Bold
     public var fontSize:CGFloat = 18
     public var firstTxtColor:UIColor = .white
